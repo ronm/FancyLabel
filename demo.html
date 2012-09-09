@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8" />
+<title></title>
+<style type="text/css">
+* {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+body {font:75%/1.5 helvetica, arial;margin:0;padding:0;}
+
+form {margin:100px auto;width:300px;}
+
+.form-item {border:1px solid #333;}
+
+/* positioning */
+.fancy-label { position:relative;}
+.fancy-label label, .fancy-label input {bottom:2px;font:100% helvetica, arial;left:4px;line-height:15px;margin:0;padding:0;position:absolute;right:4px;top:2px;}
+.fancy-label label { color:#aaa;z-index:1;}
+.fancy-label input { background:transparent;border:0;outline:none;z-index:2;}
+/* positioning */
+
+
+/* effects */
+.fancy-label.hover {border:1px solid #C41230;}
+.fancy-label.hover label {
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	filter: alpha(opacity=80);
+	opacity:.8;
+}
+.fancy-label.focus label {
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity:.3;
+}
+.fancy-label.has-text label {
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity:0;
+}
+/* effects */
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="fancyLabel.js"></script>
+<script type="text/javascript">
+$(function () {
+	$(".form-item").fancyLabel({
+		"before": (function() {
+			console.log("before");
+		}),
+		"after": (function() {
+			console.log("after");
+		})
+	});
+});
+</script>
+</head>
+<body>
+
+
+<form>
+	<div class="form-item">
+		<label for="name">Name</label>
+		<input type="text" id="name" />
+	</div>
+</form>
+</body>
+</html>

@@ -23,14 +23,14 @@
 	  			  .focus(function() { 
 		  			$wrapper.addClass("focus"); 
 
-	  		            if (!$input.val() && typeof settings.before === "function") {
+	  		            if (typeof settings.before === "function") {
 		  		        	settings.before.apply($wrapper);		  		      
 	  		            }
 		  			
 	  			}).blur(function() { 
 		  			$wrapper.removeClass("focus");
 		  			
-		  			if (!$input.val() && (typeof settings.after === "function")) {
+		  			if (typeof settings.after === "function") {
 		  		       	settings.after.apply($wrapper);
 		  		    }
 		  		    
